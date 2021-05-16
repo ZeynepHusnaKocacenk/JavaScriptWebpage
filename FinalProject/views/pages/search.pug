@@ -1,0 +1,20 @@
+html 
+    head
+        title  Search 
+        style 
+            include ../css/style.css
+
+body
+    script(src="/client.js")
+    include ../partials/header
+    div#search
+        p #[b Title:]
+            input#title(type='text')
+        p #[b Genre:]
+            input#genre(type='text')
+        p #[b Actor Name:]
+            input#actorName(type='text')
+        button(type=button onclick="search()") Search 
+            
+
+        

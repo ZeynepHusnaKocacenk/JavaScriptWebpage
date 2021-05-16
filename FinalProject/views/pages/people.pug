@@ -1,0 +1,41 @@
+html 
+    head
+        title #{person.Name} 
+        style 
+            include ../css/style.css
+
+body 
+    include ../partials/header
+    div#main
+        p #[b Name: ] #{person.Name}
+            |
+            |
+            |
+            a(href='button')
+            button(type=button) Unfollow 
+        br
+        if person.FrequentCollaborators
+            p #[b Frequent Collaborators: ] 
+            each p in person.FrequentCollaborators
+                a(href = "/people/samplePerson") #{p.Name}
+                br
+            br
+        p #[b Work History: ]
+        if (person.Writer.length>0)   
+            p #[b Written: ] 
+            each movie in person.Writer
+                a(href = "/movies/"+movie) #{movie}
+                br
+            br
+        if (person.Director.length>0)
+            p #[b Directed: ] 
+            each movie in person.Director
+                a(href = "/movies/"+movie) #{movie}
+                br
+            br
+        if (person.Actor.length>0)
+            p #[b Acted: ] 
+            each movie in person.Actor
+                a(href = "/movies/"+ movie) #{movie}
+                br
+        

@@ -1,0 +1,98 @@
+html
+    head
+        title #{movie.Title}
+        style 
+            include ../css/style.css
+body
+    include ../partials/header
+    div#main
+        p #[img(src=movie.Poster)]
+        h2 #{movie.Title} 
+            |
+            |
+            |
+            a(href='button')
+            button(type=button) Add to Watchlist
+        p #{movie.Year} | #{movie.Runtime} | #{movie.AverageRating}
+        if movie.Genre
+            each genre in movie.Genre
+                a(href="/movies?genre="+genre) #{genre}
+                |
+                |
+        br
+        if movie.Plot
+            p #{movie.Plot}
+            br
+        if movie.Director
+            p #[b Director: ]
+                |
+                each person in movie.Director
+                    a(href="/people/"+ person) #{person}
+                    br
+                    |
+                    |
+        if movie.Writer
+            p #[b Writer: ]
+                |
+                each person in movie.Writer
+                    a(href="/people/"+ person) #{person}
+                    br
+                    |
+                    |
+        if movie.Actor
+            p #[b Actors: ] 
+                |
+                each person in movie.Actor
+                    a(href="/people/"+ person) #{person}
+                    br
+                    |
+                    |
+        if (movie.Awards)
+            p #[b Awards: ]   
+                | #{movie.Awards}
+            br
+            br
+        div#reviews
+            //- if (movie.Reviews)
+            //-     p #[b Reviews:]
+            //-     each val in movie.Reviews
+            //-             p #{val}
+            //-                 |
+            //-                 |  
+            //-                 |
+            //-                 a(href='button')
+            //-                 button(type=button) View                    
+    div#addreview
+        form(action=`/movies/${movie._id}`, method="POST")
+            //script(src="/addReview.js")
+            p 
+            b Add Review
+            p 
+            b Review Score:
+            |
+            |
+            |
+            input(type="number" id='score')
+            a(href='button')
+            button(type=submit) Add Score
+            p
+            b Review Summary:
+            |
+            |
+            |
+            input(id="summary" type="text")
+            p
+            b Review:
+            p
+            textarea(id="review", cols="30", rows="10")
+            p
+            a(href='button')
+            button(type=submit) Add Full Review
+    //- div#similar
+    //-     p #[b Similar Movies: ]
+    //-     each movie in similarMovies
+    //-         a(href="/movies/"+movie._id) #{movie.Title}
+    //-         |
+    //-         |
+
+        

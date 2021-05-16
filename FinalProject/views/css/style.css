@@ -1,0 +1,98 @@
+#main h1{
+    color: #793905;
+    text-align: center;
+    height: 100px;
+    font-size: 300%;
+    font-family: Monospace, Monaco;
+}
+
+img{
+    float: right;
+}
+p{
+    /* width: 200px;
+    display: inline-block;
+    */
+   margin: 10px;
+   /*text-align: left;*/
+   color: #5c3208;
+    font-family: Monospace, Monaco;
+}
+
+
+button{
+    background-color:burlywood;
+    border: none;
+    color: white;
+    /*padding: 15px 32px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Monospace, Monaco;
+}
+
+
+a{
+    color: black;
+    font-size: 16px;
+    font-family: monospace;
+    margin: 10px;
+}
+#header{
+    position: sticky;
+    top: 0;
+    text-align: center;
+}
+#header a{
+    position: sticky;
+    text-align: center;
+    background-color:burlywood;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Monospace, Monaco;
+}
+
+body{
+    background-color: pink;
+    font-family: monospace, monaco;
+}
+
+  h2{
+    color: #5c3208;
+    font-family: Monospace, Monaco;
+    margin: 10px;
+}
+
+#label {
+    text-align:right;
+    padding-right:20px;
+    display:inline-block;
+    min-width:150px;
+    }
+
+#addreview p{
+    text-align: left;
+    color: #5c3208;
+    font-family: Monospace, Monaco;
+}
+    
+#addreview b{
+    margin: 10px;
+    text-align: left;
+    color: #5c3208;
+    font-family: Monospace, Monaco;
+}
+
+#movies{
+    text-align: center;
+}

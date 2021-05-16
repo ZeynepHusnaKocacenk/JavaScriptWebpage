@@ -1,0 +1,27 @@
+html
+	head
+		title Movie DB Project Check-in Home Page
+		style 
+			include ../css/style.css
+body
+	script(src="/client.js")
+	include ../partials/header
+
+	div#main
+		h1 Welcome to Our Movie Database!
+		br
+		br
+		br
+		div#movies
+			h2 #[b Recently Added Movies: ]
+			each movie in movies 
+				a(href='/movies/'+ movie._id) #{movie.Title}
+				br
+	div#search
+		p #[b Title:]
+			input#title(type='text')
+		p #[b Genre:]
+			input#genre(type='text')
+		p #[b Actor Name:]
+			input#actorName(type='text')
+		button(type=button onclick="search()") Search 

@@ -1,0 +1,64 @@
+html 
+    head
+        title  Profile 
+        style 
+            include ../css/style.css
+
+body 
+    include ../partials/header
+    div#main
+a(href = "/logout") Logout
+        p #[b username: ] #{user.username}
+        p #[b Account Type: ]
+            form(action="/saveAccountType" method="POST" ) 
+                input(type="radio" name="aType"  value="regular" id="regular" checked = !user.admin) 
+                print Regular
+                input(type="radio" name="aType"  value="contributing" id="contributing" checked = user.admin) 
+                print Contrubuting
+
+                button(type=submit) Save
+                br
+        br
+        br
+        if(user.FollowingPeople)
+            p #[b People you Follow:] 
+            each person in user.FollowingPeople
+                button(type=button) Unfollow 
+                |
+                |
+                |
+                a(href='people/samplePerson') #{person.Name}
+                br
+        br
+        if(user.FollowingUsers)
+            p #[b Users you Follow:]
+            each followed in user.FollowingUsers
+                button(type=button) Unfollow 
+                |
+                |
+                |
+                a(href='/users/otherUser') #{followed.Name}
+                br
+        br
+        if(user.WatchList)
+            p #[b Movies Watched:]
+            each movie in user.WatchList
+                button(type = button) Remove
+                |
+                |
+                a(href = "/movies/"+movie._id) #{movie.Title}
+                br
+            br
+        if(user.Notifications)
+            p #[b Notifications:]
+            each val in user.Notifications
+                button(type=button) Delete 
+                |
+                |
+                |
+                button(type=button) View 
+                |
+                |
+                | #{val}
+                br
+

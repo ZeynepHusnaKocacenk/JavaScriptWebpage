@@ -1,0 +1,30 @@
+html 
+    head
+        title  Contribute 
+        style 
+            include ../css/style.css
+
+body#main 
+    include ../partials/header
+    div#addActor
+        script(src="/addPeople.js")
+        p #[b Add a Person:]
+        p Person Name: 
+            input(type='text' id='name')
+        button(type=button onclick="addPeople()") Add Person
+    div#addMovie
+        script(src="/addMovie.js")
+        p #[b Add a Movie:]
+        p Title: 
+            input(type='text' id='title')
+        p Release Year: 
+            input(type='number' id='year')
+        p Runtime: 
+            input(type='text' id='runtime')
+        p Actors: 
+            input(type='text' id='actors')
+        p Director: 
+            input(type='text' id='director')
+        p Writer: 
+            input(type='text' id='writer')
+        button(type=button onclick="submit()") Add Movie

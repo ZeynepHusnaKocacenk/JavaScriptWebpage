@@ -1,0 +1,41 @@
+html 
+    head
+        title  #{user.Name} `s Profile
+        style 
+            include ../css/style.css
+
+body 
+    include ../partials/header
+    div#main
+        if user.AccountType == "true"  
+            p #[b username: ] #{user.Name} (Regular Account)
+        if user.AccountType == "false"
+            p #[b username: ] #{user.Name} (Contributer Account)
+                |
+                |
+                |
+                button(type='button') Follow
+        p #[b People #{user.Name} Follows:] 
+        each person in user.Following
+            button(type=button) Follow 
+            |
+            |
+            |
+            a(href='/users/people/samplePerson') #{person.Name}
+            br
+
+        p #[b Users #{user.Name} Follows:]
+        each followed in user.FollowingUsers
+            button(type=button) Follow 
+            |
+            |
+            |
+            a(href='/users/otherUser') #{followed.Name}
+            //- a(href=`/users/${followed._id}`) #{followed.Name}
+            br
+        
+        p #[b Movies in #{user.Name}`s Watclist:]
+        each movie in user.WatchList
+            a(href = "/movies/exampleMovie") #{movie.Title}
+            br
+
